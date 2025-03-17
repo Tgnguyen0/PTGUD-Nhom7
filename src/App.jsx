@@ -17,7 +17,7 @@ function App() {
           <Route index element={<Home />} path="/" />
           <Route path='/home' element={<Home />} />
           <Route path='/movie/:id' element={<DetailPage />} />
-          <Route path='/movie/video-player/unique_id_doyyess' element={<Video />} />
+          <Route path='/movie/video-player/unique_id_doyyess/:id' element={<Video />} />
         </Routes>
       </BrowserRouter>
     </div>

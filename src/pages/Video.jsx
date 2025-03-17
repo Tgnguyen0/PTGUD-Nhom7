@@ -1,10 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { FaPause, FaVolumeDown, FaVolumeMute, FaVolumeUp, FaPlay, FaVolumeOff, FaCompress, FaExpand } from 'react-icons/fa';
+import { useParams, Link } from 'react-router-dom';
+import { FaPause, FaVolumeDown, FaVolumeMute, FaVolumeUp, FaPlay, FaVolumeOff, FaCompress, FaExpand, FaStar } from 'react-icons/fa';
 import { TbRewindBackward10, TbRewindForward10 } from "react-icons/tb";
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
+import GlobalApi from '../Services/GlobalApi';
 import Header from '../Componets/Header';
 import Footer from '../Componets/Footer';
 import marvelV from './../assets/Videos/marvel.mp4'
 const Video = () => {
+    const { id } = useParams();
+    const [movieDetail, setMovieDetail] = useState(null);
+
     const videoRef = useRef(null);
     const playerRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -17,6 +23,11 @@ const Video = () => {
     const [isMuted, setIsMuted] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
 
+    useEffect(() => {
+        GlobalApi.getMovieById(id).then((resp) => {
+            setMovieDetail(resp.data);
+        });
+    }, [id]);
     useEffect(() => {
         const interval = setInterval(() => {
             if (videoRef.current) {
@@ -143,12 +154,48 @@ const Video = () => {
             return <FaVolumeOff />
         }
     };
+    if (!movieDetail) {
+        return <div>Loading...</div>;
+    }
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="w-full pt-[0ch] pd-16">
             <Header></Header>
+            {/* thông tin cơ bản  */}
+            <div className="w-full flex md:flex-row flex-col items-start pl-32 p-10 gap-4">
+                {/* Poster */}
+                <div className="md:w-1/5 w-full">
+                    <img
+                        src={IMAGE_BASE_URL + movieDetail.poster_path}
+                        alt={movieDetail.title}
+                        className="w-full max-h-[300px] object-contain rounded-xl"
+                    />
+                </div>
+
+                {/* Nội dung */}
+                <div className="md:w-4/5 w-full space-y-3">
+                    <h1 className="md:text-4xl text-3xl text-neutral-50 font-bold">
+                        {movieDetail.title}
+                    </h1>
+                    <div className="flex items-center gap-x-1">
+                        <p className="text-base md:text-lg text-neutral-50 font-semibold">
+                            {movieDetail.vote_average}
+                        </p>
+                        <FaStar className="w-4 h-4 text-yellow-500" />
+                    </div>
+                    <p className="md:text-base text-sm font-normal text-neutral-400">
+                        {movieDetail.overview}....
+                    </p>
+                    <button className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 hover:scale-105 ease-in-out duration-300">
+                        Watch more
+                    </button>
+                </div>
+            </div>
+
+            {/* video */}
             <div
                 ref={playerRef}
-                className={`relative mx-auto group rounded-xl overflow-hidden ease-in-out duration-300 ${isFullScreen ? "fullscreen" : "w-full md:aspect-[20/8] aspect-auto"}`}
+                className={`relative mx-auto group rounded-xl overflow-hidden ease-in-out duration-300 ${isFullScreen ? "fullscreen w-full h-full" : "w-4/5 md:aspect-[16/9] aspect-auto"
+                    }`}
             >
 
                 <video

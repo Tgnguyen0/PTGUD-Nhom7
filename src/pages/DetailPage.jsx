@@ -38,8 +38,8 @@ const DetailPage = () => {
     return (
         <div>
             <Header></Header>
-            <div className="w-full pt-[10ch] pd-16">
-                <div className="w-full grid md:grid-cols-5 grid-cols-2 md:gap-16 gap-8 items-center">
+            <div className="w-full pt-[0ch] pd-16">
+                <div className="w-full grid md:grid-cols-5 grid-cols-2 md:gap-16 gap-8 items-center p-10">
                     {/* Movie poster */}
                     <div className="md:col-span-2 col-span-5 space-y-2">
                         <img
@@ -53,9 +53,10 @@ const DetailPage = () => {
                     <div className="md:col-span-3 col-span-5 space-y-7">
                         {/* Movie title , rating, release date ,.... */}
                         <div className="space-y-1.5">
-                            {/* Movie Title */}
-                            <div className="w-full flex items-center justify-between gap-1.5 flex-wrap">
-                                <h1 className="md:text-4xl text-3xl text-neutal-50 font-bold">
+                            {/* Movie Title & Rating */}
+                            <div className="w-full flex items-center justify-between gap-4 flex-wrap">
+                                {/* Movie Title */}
+                                <h1 className="md:text-4xl text-3xl text-neutral-50 font-bold flex-1">
                                     {movieDetail.title}
                                 </h1>
                                 {/* Rating */}
@@ -63,35 +64,31 @@ const DetailPage = () => {
                                     <p className="text-base md:text-lg text-neutral-50 font-semibold">
                                         {movieDetail.vote_average}
                                     </p>
-                                    <div className="flex items-center">
-                                        <FaStar className='w-4 h-4 text-yellow-500' />
-                                    </div>
+                                    <FaStar className="w-4 h-4 text-yellow-500" />
                                 </div>
                             </div>
-                            {/* Movie release date , duration and age rating */}
-                            <div className="flex items-center gap-x-2 text-sm text-neutral-500 font-nomal">
+                            {/* Movie release date, duration, and age rating */}
+                            <div className="flex items-center gap-x-2 text-sm text-neutral-500 font-normal">
                                 <p>{movieDetail.release_date}</p>
                                 <div className="w-1 h-1 bg-neutral-600 rounded-full" />
-                                <p>{movieDetail.adult ? (
-                                    <div className="flex items-center gap-1 text-red-500">
-                                        <FaExclamationTriangle className="w-4 h-4" />
-                                        <span>18+</span>
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center gap-1 text-green-500">
-                                        <FaCheckCircle className="w-4 h-4" />
-                                        <span>Under 18</span>
-                                    </div>
-                                )}</p>
-                                <div className="w-1 h-1 bg-neutral-600 rounded-full" />
                                 <p>
-                                    <div className="uppercase">
-                                        {movieDetail.original_language}
-                                    </div>
+                                    {movieDetail.adult ? (
+                                        <div className="flex items-center gap-1 text-red-500">
+                                            <FaExclamationTriangle className="w-4 h-4" />
+                                            <span>18+</span>
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center gap-1 text-green-500">
+                                            <FaCheckCircle className="w-4 h-4" />
+                                            <span>Under 18</span>
+                                        </div>
+                                    )}
                                 </p>
-
+                                <div className="w-1 h-1 bg-neutral-600 rounded-full" />
+                                <p className="uppercase">{movieDetail.original_language}</p>
                             </div>
                         </div>
+
                         {/* Movie description */}
                         <p className="md:text-base text-sm font-normal text-neutral-400">
                             {movieDetail.overview}
@@ -126,7 +123,7 @@ const DetailPage = () => {
 
                         {/* Action Button */}
                         <div className="flex items-center gap-6 !mt-10">
-                            <Link to="/movie/video-player/unique_id_doyyess" className="md:w-fit w-1/2 px-6 md:py-2.5 py-3 rounded-full capitalize bg-red-700 flex items-center justify-center gap-2">
+                            <Link to={`/movie/video-player/unique_id_doyyess/${movieDetail.id}`} className="md:w-fit w-1/2 px-6 md:py-2.5 py-3 rounded-full capitalize bg-red-700 flex items-center justify-center gap-2  text-neutral-50">
                                 <FaPlay />
                                 Play Now
                             </Link>
@@ -138,7 +135,7 @@ const DetailPage = () => {
                     </div>
                 </div>
                 {/* Related Movies */}
-                <div className="w-full mt-10">
+                <div className="w-full mt-10 p-10">
                     <h2 className="text-lg font-bold text-neutral-50 mb-4 shrink-0">Related Movies:</h2>
                     <Swiper
                         modules={[Navigation, Pagination]}
