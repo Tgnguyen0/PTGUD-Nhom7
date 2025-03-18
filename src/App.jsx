@@ -7,6 +7,8 @@ import './App.css'
 import Home from './pages/Home'
 import DetailPage from './pages/DetailPage';
 import Video from './pages/Video';
+import Search from './pages/Search';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,6 +18,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} path="/" />
           <Route path='/home' element={<Home />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/movie/:id' element={<DetailPage />} />
           <Route path='/movie/video-player/unique_id_doyyess/:id' element={<Video />} />
         </Routes>
