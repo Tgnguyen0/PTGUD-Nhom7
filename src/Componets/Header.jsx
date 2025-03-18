@@ -34,6 +34,11 @@ function Header() {
             name:'SERIES',
             icon:HiTv
         }
+        ,
+        {
+            name:'ABOUT',
+            icon:HiDotsVertical
+        }
     ]
   return (
     <div className='flex items-center justify-between p-5'>

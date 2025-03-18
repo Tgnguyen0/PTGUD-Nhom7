@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import DetailPage from './pages/DetailPage';
 import Video from './pages/Video';
 import Search from './pages/Search';
+import About from './pages/About';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/movie/:id' element={<DetailPage />} />
+          <Route path='/about' element={<About />} />
           <Route path='/movie/video-player/unique_id_doyyess/:id' element={<Video />} />
         </Routes>
       </BrowserRouter>

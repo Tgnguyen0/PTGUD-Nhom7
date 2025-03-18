@@ -24,6 +24,9 @@ function HeaderItem({name,Icon}) {
       case 'SERIES':
         alert("None done yet");
         break;
+      case 'ABOUT':
+        navigate('/about');
+        break;
       default: 
         break;
     }
