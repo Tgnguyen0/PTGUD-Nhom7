@@ -13,7 +13,6 @@ import Movies from './pages/Movies';
 import Series from './pages/Series';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="">

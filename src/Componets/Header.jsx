@@ -19,14 +19,6 @@ function Header() {
             icon:HiMagnifyingGlass
         },
         {
-            name:'WATCH LIST',
-            icon:HiPlus
-        },
-        {
-            name:'ORIGINALS',
-            icon:HiStar
-        },
-        {
             name:'MOVIES',
             icon:HiPlayCircle
         },
