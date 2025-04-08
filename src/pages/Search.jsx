@@ -7,7 +7,7 @@ import { HiHome,
     HiStar,
     HiPlayCircle,
     HiTv } from "react-icons/hi2";
-
+ 
 function Search() {
     const [startIndex, setStartIndex] = useState(0);
     const maxVisible = 5;
