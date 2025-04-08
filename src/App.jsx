@@ -17,7 +17,6 @@ function App() {
 
   return (
     <div className="">
-      <FilmProvider>
         <BrowserRouter>
           <Routes>
             <Route index element={<Home />} path="/" />
@@ -30,7 +29,6 @@ function App() {
             <Route path='/movie/video-player/unique_id_doyyess/:id' element={<Video />} />
           </Routes>
         </BrowserRouter>
-      </FilmProvider>
     </div>
   )
 }

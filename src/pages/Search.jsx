@@ -10,7 +10,9 @@ import { HiHome,
  
 function Search() {
     const [startIndex, setStartIndex] = useState(0);
+    const [ search, setSearch ] = useState("");
     const maxVisible = 5;
+    
     const genre = [
         "Action", "Adventure", "Animation", "Biography", "Comedy", 
         "Crime", "Documentary", "Drama", "Family", "Fantasy", 
@@ -25,6 +27,10 @@ function Search() {
     const handleNext = () => {
         setStartIndex((prev) => Math.min(prev + 1, genre.length - maxVisible));
     }
+
+    const filteredUsers = users.filter((user) =>
+        user.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
         <div>
@@ -48,6 +54,8 @@ function Search() {
                         transition: "0.3s ease-in-out",
                         boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.2)"
                     }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                     onFocus={(e) => e.target.style.boxShadow = "0px 4px 15px rgba(255, 255, 255, 0.4)"}
                     onBlur={(e) => e.target.style.boxShadow = "0px 4px 10px rgba(255, 255, 255, 0.2)"}
                 />
