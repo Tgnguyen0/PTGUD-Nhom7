@@ -12,6 +12,8 @@ import About from './pages/About';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
 import { FilmProvider } from './contex/FilmContext';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 function App() {
 

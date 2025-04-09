@@ -6,8 +6,8 @@ import {
     HiStar,
     HiPlayCircle,
     HiTv,
-    HiDotsVertical
 } from "react-icons/hi2";
+import { HiDotsVertical } from 'react-icons/hi';
 import HeaderItem from './HeaderItem';
 
 function Header() {
