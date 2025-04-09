@@ -14,10 +14,15 @@ const getMovieById = (id) =>
     axios.get(`${movieBaseUrl}/movie/${id}?api_key=${api_key}`);
 const getAllMovies = () =>
     axios.get(`${movieBaseUrl}/discover/movie?api_key=${api_key}`);
+const getMoviesByGenreIds = (ids) => {
+    const genreIds = ids.join(',');
+    return axios.get(`${movieByGenreBaseURL}&with_genres=${genreIds}`);
+};
 
 export default {
     getTrendingVideos,
     getMovieByGenreId,
     getMovieById,
-    getAllMovies
+    getAllMovies,
+    getMoviesByGenreIds
 }
