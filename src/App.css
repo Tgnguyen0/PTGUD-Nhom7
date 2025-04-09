@@ -4,6 +4,26 @@
 
 }
 
+.table-transparent,
+.table-transparent thead,
+.table-transparent tbody,
+.table-transparent tr,
+.table-transparent th,
+.table-transparent td {
+    background-color: transparent !important;
+    border-color: rgb(255, 0, 0);
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.1s ease;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

@@ -5,6 +5,7 @@ import SeriesCard from '../Componets/SeriesCard';
 
 const Series = () => {
     const [series, setSeries] = useState([]);
+    const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
