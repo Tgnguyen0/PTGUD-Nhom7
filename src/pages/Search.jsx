@@ -9,6 +9,7 @@ import MovieCard from '../Componets/MovieCard';
 import Footer from '../Componets/Footer';
 import GlobalApi from "../Services/GlobalApi";
 import DisplayList from '../Componets/DisplayList';
+import ReleaseYearList from '../Constant/ReleaseYearList';
 //import '../App.css'
 import { HiHome,
     HiMagnifyingGlass,
@@ -16,7 +17,6 @@ import { HiHome,
     HiPlayCircle,
     HiTv } from "react-icons/hi2";
 
- 
 function Search() {
     const [ displayList, setDisplayList ] = useState([]);
     const [ allList, setAllList ] = useState([]);
@@ -146,12 +146,20 @@ function Search() {
                 }
             }
     
+            if (type === "releaseYear") {
+                if (updatedFilters.year === value.year) {
+                    delete updatedFilters.year;
+                } else {
+                    updatedFilters.year = value.year;
+                }
+            }
+    
             // Fetch movies với filters mới
             getMoviesByFilters(updatedFilters);
     
             return updatedFilters;
         });
-    };
+    };    
 
     const handleSearchChange = (e) => {
         const searchTerm = e.target.value;
@@ -246,6 +254,7 @@ function Search() {
                     <tbody>
                         {renderFilterButtons("Thể loại", GenresList.genere, "genre", "id", "name")}
                         {renderFilterButtons("Ngôn ngữ", LangList.lang, "language", "iso_639_1", "name")}
+                        {renderFilterButtons("Năm phát hành", ReleaseYearList.years, "releaseYear", "year", "year")}
                     </tbody>
                 </table>      
             </div>
