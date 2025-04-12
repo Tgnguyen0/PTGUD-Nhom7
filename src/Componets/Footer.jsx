@@ -20,12 +20,15 @@ const Footer = () => {
                                     className="flex-1 p-2 rounded-l-md border border-gray-600 focus:outline-none"
                                     placeholder="Enter your email"
                                 />
-                                <button className="bg-yellow-500 hover:bg-yellow-700 text-white py-2 transition">
+                                <button 
+                                    className="bg-yellow-500 hover:bg-yellow-700 text-white py-2 transition"
+                                    style={{borderTopLeftRadius: "0px", borderEndStartRadius: "0px"}}
+                                >
                                     Send
                                 </button>
                             </div>
                             <p className="text-sm mt-8">
-                                <a href="#!" className="text-white hover:text-gray-300">© 2023 Cheffify Company</a>
+                                <a href="#!" className="text-white hover:text-gray-300">© 2023 Phim Moi Plus</a>
                                 <span className="mx-2">|</span>
                                 <a href="#!" className="text-white hover:text-gray-300">Terms of Service</a>
                                 <span className="mx-2">|</span>
@@ -51,15 +54,15 @@ const Footer = () => {
 
                     {/* Recipes */}
                     <div className="text-center">
-                        <h6 className="text-lg font-bold uppercase mb-3">Recipes</h6>
+                        <h6 className="text-lg font-bold uppercase mb-3">Film & Series</h6>
                         <ul className="space-y-2">
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">What to Cook This Week</a></li>
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Pasta</a></li>
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Dinner</a></li>
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Healthy</a></li>
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Vegetarian</a></li>
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Vegan</a></li>
-                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Christmas</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">What to watch this Week ?</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">A minecraft movie</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Breaking Bad</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">House of the Dragon</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Mai</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">Coco</a></li>
+                            <li><a href="#!" className="text-sm text-white hover:text-gray-300">The Subtance</a></li>
                         </ul>
                     </div>
 
