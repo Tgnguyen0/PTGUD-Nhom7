@@ -153,6 +153,14 @@ function Search() {
                     updatedFilters.year = value.year;
                 }
             }
+
+            if (type === "certification") {
+                if (updatedFilters.certification === value.certification) {
+                  delete updatedFilters.certification;
+                } else {
+                  updatedFilters.certification = value.certification;
+                }
+            }
     
             // Fetch movies với filters mới
             getMoviesByFilters(updatedFilters);
@@ -255,6 +263,7 @@ function Search() {
                         {renderFilterButtons("Thể loại", GenresList.genere, "genre", "id", "name")}
                         {renderFilterButtons("Ngôn ngữ", LangList.lang, "language", "iso_639_1", "name")}
                         {renderFilterButtons("Năm phát hành", ReleaseYearList.years, "releaseYear", "year", "year")}
+                        {renderFilterButtons("Chứng nhận", AgeList, "certification", "certification", "certification")}
                     </tbody>
                 </table>      
             </div>
